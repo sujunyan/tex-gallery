@@ -2,6 +2,7 @@
 \begin{figure}[h]
     \begin{center}
     \begin{tikzpicture}
+        \pgfplotstableread{submodules/datafile1.csv}{\datatable}
     \begin{axis}[
         xlabel={Computation time passed~[minutes]},
         ylabel={bits per channel use},
@@ -29,31 +30,31 @@
     ]
 
     %1
-    \addplot[red,mark=o,dashed] table [x index=0, y index=1] {submodules/1/datafile.csv};
+    \addplot[red,mark=o,dashed] table [x index=0, y index=1] {\datatable};
     \addlegendentry{EM-type algorithm~[13] with 4-state FSMC}
 
     %2
-    \addplot[dashed,mark=o] table [x index=0, y index=2] {submodules/1/datafile.csv};
+    \addplot[dashed,mark=o] table [x index=0, y index=2] {\datatable};
     \addlegendentry{EM-type algorithm~[13] with 16-state FSMC}
 
     %3
-    \addplot[blue,mark=diamond] table [x index=0, y index=3] {submodules/1/datafile.csv};
+    \addplot[blue,mark=diamond] table [x index=0, y index=3] {\datatable};
     \addlegendentry{Algorithm~11 with 1-qubit QSC}
 
     %4
-    \addplot[red,mark=+] table [x index=0, y index=4] {submodules/1/datafile.csv};
+    \addplot[red,mark=+] table [x index=0, y index=4] {\datatable};
     \addlegendentry{Algorithm~11 with 4-state FSMC}
 
     %5
-    \addplot[mark=+] table [x index=0, y index=5] {submodules/1/datafile.csv};
+    \addplot[mark=+] table [x index=0, y index=5] {\datatable};
     \addlegendentry{Algorithm~11 with 16-state FSMC}
 
     %6
-    \addplot[red,mark=diamond] table [x index=0, y index=6] {submodules/1/datafile.csv};
+    \addplot[red,mark=diamond] table [x index=0, y index=6] {\datatable};
     \addlegendentry{Algorithm~11 with 2-qubit QSC}
 
     %7
-    \addplot[dashed] table [x index=0, y index=7] {submodules/1/datafile.csv};
+    \addplot[dashed] table [x index=0, y index=7] {\datatable};
     \addlegendentry{Estimated Information Rate~(Alg.~9)}
 
     \end{axis}
