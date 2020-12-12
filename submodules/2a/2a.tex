@@ -1,8 +1,8 @@
-\newpage
-\section{figures.example.01}
-In this section, the figures style are inspired by \url{https://www.nature.com/articles/nature14122/figures/12}.
-\subsection{a}
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+%In this section, the figures style are inspired by \url{https://www.nature.com/articles/nature14122/figures/12}.
 % For the use of draw group line, refer to https://tex.stackexchange.com/questions/55554/how-can-i-mix-an-ybar-and-an-ybar-stacked-with-pgfplots
+\begin{document}
 
 \newcounter{groupcount}
 % draw group line={<group column>}{<group value>}{<group label>}{<vertical offset>}{<line extension>}{<table name>}
@@ -45,8 +45,6 @@ In this section, the figures style are inspired by \url{https://www.nature.com/a
 \pgfplotsset{my error bar/.style={error bars/.cd,y dir =both, y explicit}}
 
 % figure a -------------------------------------------------------
-\begin{figure}[ht]
-\begin{center}
       
 \begin{tikzpicture}
 \pgfplotstableread{
@@ -103,6 +101,5 @@ X Gp  name EGFR EGFRerr BRG1 BRG1err EZH2 EZH2err
 
 \end{axis}
 \end{tikzpicture}
-\end{center}  
-\end{figure}
 
+\end{document}

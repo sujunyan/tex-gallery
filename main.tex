@@ -8,6 +8,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{textcomp}
+\usepackage{standalone}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \title{\LaTeX\, Gallery}
@@ -25,12 +26,24 @@ urlcolor = blue
 %\tikzexternalize{mode=list and make,prefix=submodules/outfig/}
 \begin{document}
 \maketitle
-\input{submodules/1}
-\input{submodules/2a}
-\input{submodules/2b}
-\input{submodules/3a}
-\input{submodules/3b}
 
-\bibliographystyle{unsrt}
-\bibliography{ref}
+% \includeSubmodule{name}
+\newcommand{\includeSubmodule}[1]{
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=\linewidth]{submodules/#1/#1.pdf}
+        \end{center} 
+        \caption*{Figure #1}
+    \end{figure}
+}
+\includeSubmodule{1}
+\includeSubmodule{2a}
+\includeSubmodule{2b}
+\includeSubmodule{3a}
+\includeSubmodule{3b}
+
+
+
+%\bibliographystyle{unsrt}
+%\bibliography{ref}
 \end{document}

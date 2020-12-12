@@ -1,10 +1,10 @@
-%% figure b ----------------------------------------------------------------------------------------
-\newpage
-\subsection{b}
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
 \usetikzlibrary{calc}
-\begin{figure}[ht]
-\begin{center}
+\begin{document}
+    
 \begin{tikzpicture}
+\pgfplotsset{my error bar/.style={error bars/.cd,y dir =both, y explicit}}
 \pgfplotsset{
     subplotStyle/.style n args ={1}{
         axis x line = bottom, % change the default axis box.
@@ -179,5 +179,5 @@
 %\node [scale=0.8] (mylegendnode) at ($(title1.north)!0.5!(title2.north)+(0,8pt)$) {\pgfplotslegendfromname{commonLegendb}};
 
 \end{tikzpicture}
-\end{center}
-\end{figure}
+
+\end{document}

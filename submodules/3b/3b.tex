@@ -1,7 +1,6 @@
-\newpage
-\subsection{b}
-\begin{figure}[h]
-    \begin{center}
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\begin{document}
     \begin{tikzpicture}
     \pgfplotstableread{
         X   name1   name2   name3   name4   name5   name6
@@ -48,9 +47,6 @@
     \mysubplot{name5}{mark=+}
     \mysubplot{name6}{mark=square}
 
-
     \end{axis}
     \end{tikzpicture}
-    \end{center}
-
-\end{figure}
+\end{document}

@@ -1,9 +1,8 @@
-\section{}
-
-\begin{figure}[h]
-    \begin{center}
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\begin{document}
     \begin{tikzpicture}
-    \pgfplotstableread{submodules/datafile1.csv}{\datatable}
+    \pgfplotstableread{datafile1.csv}{\datatable}
     \begin{axis}[
         xlabel={Computation time passed~[minutes]},
         ylabel={bits per channel use},
@@ -60,7 +59,4 @@
 
     \end{axis}
     \end{tikzpicture}
-    \end{center}
-
-    \caption{Minimizing the difference function $\Delta_{W}^{(n)}$ using different methods. The markers appear after every 400 updates.(Fig.11 in ~\cite{1}, data are some fake data)}
-\end{figure}
+\end{document}
