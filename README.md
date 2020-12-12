@@ -4,15 +4,11 @@ This is a small gallery of latex figures/tables. I found some good figures/table
 # Illustrations
 ## Figure 1
 ![figure 1](submodules/1/1.png)
-
 ## Figure 2a
 ![figure 2a](submodules/2a/2a.png)
-
 ## Figure 2b
 ![figure 2b](submodules/2b/2b.png)
-
 ## Figure 3a
 ![figure 3a](submodules/3a/3a.png)
-
 ## Figure 3b
 ![figure 3b](submodules/3b/3b.png)
