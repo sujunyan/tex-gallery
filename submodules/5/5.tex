@@ -1,27 +1,30 @@
-\documentclass[varwidth]{standalone}
+\documentclass[preview]{standalone}
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{hhline}
 \usepackage{graphicx}
-\begin{document}
+\usepackage{cellspace}
+\usepackage{setspace}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
 
-\begin{table}\footnotesize \ttfamily
+\begin{document}
+\begin{table} \footnotesize  
 \caption{Literature on guidelines to review scientific papers}
-\newcommand{\titleWidth}{.33\linewidth}
+\newcommand{\titleWidth}{.30\textwidth}
 % wrap one row in a new command: \oneRow{title}{comment}{description}
 \newcommand{\oneRow}[3]{
-    &#1 \newline 
-    #2 & #3
+    &#1 \newline #2 & #3 
 }
+\newcommand{\mynewline}{\\} % to control the vertical spacing
 %% start of the content
-\begin{tabularx}{\linewidth}{c|p{\titleWidth}|X|} 
+\begin{tabularx}{\textwidth}{c|p{\titleWidth}|X|} 
     \cline{2-3}
      & \textbf{Title} & \textbf{Description}\\ \hhline {-==}
     % books start -------------
     \multicolumn{1}{|c||}{ \multirow{2}{*}[-15pt]{\rotatebox[origin=c]{90}{\textbf{Books}}}}
     \oneRow{[Weller 2002]}{"Editorial Peer Review: Its Strengths and Weaknesses"}{This is a sentence of description. This is a sentence of description. This is a sentence of description}  \\ \cline{2-3} 
     \multicolumn{1}{|c||}{
-    } \oneRow{[Hames 2007]}{"Peer Preview and Manuscript Management in Scientific Journals"}{This is a sentence of description. This is a sentence of description. This is a sentence of description This is a sentence of description.}  \\ \hhline{===}
+    } \oneRow{[Hames 2007]}{"Peer Preview and Manuscript Management in Scientific Journals"}{This is a sentence of description. This is a sentence of description. This is a sentence of description This is a sentence of description.}  \mynewline \hhline{===}
     % journal start ---------------
     \multicolumn{1}{|c||}{ \multirow{6}{*}[-60pt]{\rotatebox[origin=c]{90}{\textbf{Journal Articles}}}}
     \oneRow{[Parberry 1989]}{"A Guide for New Referees in Theoretical Computer Science"}{This is a sentence of description. This is a sentence of description. This is a sentence of description}  \\ \cline{2-3} 
@@ -31,7 +34,7 @@
     \multicolumn{1}{|c||}{} \oneRow{[Benos et al. 2003]}{"How to review a paper"}{This is a sentence of description. This is a sentence of description. This is a sentence of description This is a sentence of description.}  \\ \cline{2-3}
     \multicolumn{1}{|c||}{} \oneRow{[Hirst and Altman 2012]}{"Are Perr Reviewers Encouraged to Use Reporting Guidelines?"}{This is a sentence of description. This is a sentence of description. This is a sentence of description This is a sentence of description.}  \\ \hhline{===}
     %% Reports start -----------------------
-    \multicolumn{1}{|c||}{ \multirow{2}{*}[-15pt]{\rotatebox[origin=c]{90}{\textbf{Reports}}}}
+    \multicolumn{1}{|c||}{ \multirow{2}{*}[-7pt]{\rotatebox[origin=c]{90}{\textbf{Reports}}}}
     \oneRow{[Bernstein 2008]}{"Reviewing Conference Papers"}{This is a sentence of description. This is a sentence of description. This is a sentence of description}  \\ \cline{2-3} 
     \multicolumn{1}{|c||}{
     } \oneRow{[King 2011]}{"The Editors Speak: What Makes a Good Review"}{This is a sentence of description. This is a sentence of description. This is a sentence of description This is a sentence of description.}  \\ \hhline{===}

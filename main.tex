@@ -28,20 +28,20 @@ urlcolor = blue
 \maketitle
 
 % \includeSubmodule{name}
-\newcommand{\includeSubmodule}[1]{
+\newcommand{\includeSubmodule}[2]{
     \begin{figure}[ht]
         \begin{center}
             \includegraphics[width=\linewidth]{submodules/#1/#1.pdf}
         \end{center} 
-        \caption*{Figure #1}
+        \caption*{Figure #1#2}
     \end{figure}
 }
-\includeSubmodule{1}
-\includeSubmodule{2a}
-\includeSubmodule{2b}
-\includeSubmodule{3a}
-\includeSubmodule{3b}
-\includeSubmodule{4}
+\includeSubmodule{1}{}
+\includeSubmodule{2a}{: figures.example.01a}
+\includeSubmodule{2b}{: figures.example.01b}
+\includeSubmodule{3a}{: figures.example.02a}
+\includeSubmodule{3b}{: figures.example.02b}
+\includeSubmodule{4}{: pcode.example}
 
 
 
