@@ -1,40 +1,60 @@
 %% For table drawing, refer to https://tex.stackexchange.com/questions/160423/tikz-table-with-mathmode-and-drawing 
-\documentclass[varwidth]{standalone}
+\documentclass[preview]{standalone}
 \usepackage{tabularx}
 \usepackage{leftidx}
 \usepackage[flushleft]{threeparttable}
 \usepackage{tikz}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
 \usetikzlibrary{matrix,positioning,calc}
 \newcommand\tikzmark[1]{%
-\tikz[remember picture]  \node[inner sep=0,outer sep=0] (#1){};%
+\tikz[remember picture]  \coordinate (#1){};%
 }
 
 \begin{document}
+    
+\begin{minipage}[h]{.7\linewidth}
 \begin{table} 
     \caption{Population variation in hatch success(mean percent) of unfertilized eggs for females from populations sampled in 1997.}
-    \begin{tabularx}{\linewidth}{p{0.4\linewidth}cccc}
-        \hline \\
+    \begin{tabular*}{\linewidth}{p{0.4\linewidth}cccl}
+        \hline  \\[-10pt]
         Population & mean (\%)  &\begin{tabular}[c]{@{}l@{}}Standard\\ deviation\end{tabular}   & Range & N \tikzmark{columnTitle} \\ \hline
         Population name1$^T$ & 10 & 1 & 0-50 & 10 \\ 
         Population name2$^T$ & 10 & 1 & 0-50 & 10 \\ 
         Population name3$^T$ & 10 & 1 & 0-50 & 10 \\ 
         Population name4$^P$ & 10 & 1 & 0-50 & 10 \\ 
-        Population name5$^P$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name5$^P$ & 10 & 1 & 0-50 & 10 \tikzmark{tableBody} \\ 
         Population name6$^P$ & 10 & 1 & 0-50 & 10 \\ 
         Population name7$^L$ & 10 & 1 & 0-50 & 10 \\ 
         Population name8$^L$ & 10 & 1 & 0-50 & 10 \\ 
-        Population name9$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name9$^L$ & 10 & 1 & 0-50 & 10 \tikzmark{endNode}\\ 
         \hline 
-    \end{tabularx}
+    \end{tabular*}
     \begin{tablenotes}
     \item $\leftidx{^T}{}$ = \footnotesize{temporary stream},
     $\leftidx{^P}{}$ = \footnotesize{permanent streams}, 
-    $\leftidx{^L}{}$ = \footnotesize{lakes}.
+    $\leftidx{^L}{}$ = \footnotesize{lakes}.\tikzmark{footnoteNode}
+    \item
+    \item 
     \end{tablenotes}
 \end{table}
+\end{minipage}
 
-%\begin{tikzpicture}[remember picture,overlay]
-%    %\node[draw] at ($(columnTitle)$) {Table legend};
-%\end{tikzpicture}
+% draw an arrow annotation
+\tikzset{arrow/.style ={draw, line width=1.5pt,dashed}}
+\newcommand{\drawArrowTxt}[2]{
+    \node[draw=none,red,anchor=west,text width=3cm] at ($(#1.east)+(0.8cm,0)$) {#2};
+    \draw [red,arrow]  ($(#1.east)+(0.8cm,0)$) -- +(-0.5cm,0);
+}
+
+\tikz\coordinate (captionNode) at ($(columnTitle)+(0,0.85)$);
+\tikz\coordinate (endNode1) at ($(endNode)+(15pt,-5pt)$);
+\begin{tikzpicture}[remember picture,overlay,->]
+    %\tikz \node[inner sep=0,outer sep=0] (#1){};%
+    \drawArrowTxt{captionNode}{Table legend}
+    \drawArrowTxt{columnTitle}{Column titles}
+    \drawArrowTxt{tableBody}{Table body(data)}
+    \drawArrowTxt{endNode1}{\footnotesize{Lines demarcating the different parts of the table}}
+    \drawArrowTxt{footnoteNode}{footnodes}
+\end{tikzpicture}
 
 \end{document}
