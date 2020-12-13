@@ -12,3 +12,9 @@ This is a small gallery of latex figures/tables. I found some good figures/table
 ![figure 3a](submodules/3a/3a.png)
 ## Figure 3b
 ![figure 3b](submodules/3b/3b.png)
+## Figure 4
+![figure 4](submodules/4/4.png)
+## Figure 5
+![figure 5](submodules/5/5.png)
+## Figure 6
+![figure 6](submodules/6/6.png)
