@@ -1,0 +1,40 @@
+%% For table drawing, refer to https://tex.stackexchange.com/questions/160423/tikz-table-with-mathmode-and-drawing 
+\documentclass[varwidth]{standalone}
+\usepackage{tabularx}
+\usepackage{leftidx}
+\usepackage[flushleft]{threeparttable}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,calc}
+\newcommand\tikzmark[1]{%
+\tikz[remember picture]  \node[inner sep=0,outer sep=0] (#1){};%
+}
+
+\begin{document}
+\begin{table} 
+    \caption{Population variation in hatch success(mean percent) of unfertilized eggs for females from populations sampled in 1997.}
+    \begin{tabularx}{\linewidth}{p{0.4\linewidth}cccc}
+        \hline \\
+        Population & mean (\%)  &\begin{tabular}[c]{@{}l@{}}Standard\\ deviation\end{tabular}   & Range & N \tikzmark{columnTitle} \\ \hline
+        Population name1$^T$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name2$^T$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name3$^T$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name4$^P$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name5$^P$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name6$^P$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name7$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name8$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name9$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        \hline 
+    \end{tabularx}
+    \begin{tablenotes}
+    \item $\leftidx{^T}{}$ = \footnotesize{temporary stream},
+    $\leftidx{^P}{}$ = \footnotesize{permanent streams}, 
+    $\leftidx{^L}{}$ = \footnotesize{lakes}.
+    \end{tablenotes}
+\end{table}
+
+%\begin{tikzpicture}[remember picture,overlay]
+%    %\node[draw] at ($(columnTitle)$) {Table legend};
+%\end{tikzpicture}
+
+\end{document}
