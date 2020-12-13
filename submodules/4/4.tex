@@ -1,0 +1,42 @@
+\documentclass[preview]{standalone}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{xcolor}
+
+\begin{document}
+
+\begin{algorithm}[H]
+%\SetAlgoLined 
+\SetAlgoVlined % Remove the end for each block . you can also use vlined in option of package algorithm2e
+\DontPrintSemicolon
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont} % change the comment style
+
+\caption{Example code}
+\KwIn{Your Input}
+\KwOut{Your output}
+\KwData{Testing set x}
+$\sum_{i=1}^{\infty}:=0$ \tcp*{this is a comment}
+\tcc{Now this is an if...else conditional loop}
+\If{Condition 1}{
+    Do something \tcp*{this is another comment}
+    \If{sub-Condition}{
+        Do a lot \;
+    }
+}
+\ElseIf{Condition 2}{
+    Do Otherwise\;
+    \tcc{Now this is a for loop}
+    \For{sequence}{
+        loop instructions\;
+    }
+}
+\Else{
+    Do the rest\;
+}
+\tcc{Now this is a While loop}
+\While{Condition}{
+    Do somthing\;
+}
+ 
+\end{algorithm}
+\end{document}
