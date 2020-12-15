@@ -1,8 +1,10 @@
 \documentclass[tikz]{standalone}
 \usepackage{pgfplots}
 \usetikzlibrary{calc}
+
+% the figures style are inspired by \url{https://www.nature.com/articles/nature14122/figures/12}.
+% For the use of draw group line, refer to https://tex.stackexchange.com/questions/55554/how-can-i-mix-an-ybar-and-an-ybar-stacked-with-pgfplots
 \begin{document}
-    
 \begin{tikzpicture}
 \pgfplotsset{my error bar/.style={error bars/.cd,y dir =both, y explicit}}
 \pgfplotsset{
