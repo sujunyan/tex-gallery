@@ -8,26 +8,15 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{textcomp}
-\usepackage{standalone}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \title{\LaTeX\, Gallery}
 \author{Junyan Su} 
 \date{\today}
-\hypersetup{
-colorlinks = true,
-linkcolor = blue,
-anchorcolor = blue,
-citecolor = black,
-filecolor = blue,
-urlcolor = blue
-}
-%\usetikzlibrary{external}
-%\tikzexternalize{mode=list and make,prefix=submodules/outfig/}
+
 \begin{document}
 \maketitle
-
-% \includeSubmodule{name}
+% usage \includeSubmodule{name}{additional caption}
 \newcommand{\includeSubmodule}[2]{
     \begin{figure}[ht]
         \begin{center}
@@ -44,8 +33,6 @@ urlcolor = blue
 \includeSubmodule{4}{: pcode.example}
 \includeSubmodule{5}{: table.example.01}
 \includeSubmodule{6}{: table.example.02}
-
-
 
 %\bibliographystyle{unsrt}
 %\bibliography{ref}
