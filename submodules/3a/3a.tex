@@ -1,5 +1,6 @@
 \documentclass[tikz]{standalone}
 \usepackage{pgfplots}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
 \usetikzlibrary{patterns}
 
 \begin{document}
@@ -19,7 +20,7 @@ budget    name1   name2   name3   name4    name5    name6
 }{\datatable}
 \begin{axis}[
     width = \linewidth, height = 0.5\linewidth,
-    title={The Title},
+    %title={The Title},
     title style={at={(0.5,-0.35)}},
     xtick pos=bottom,
     ytick pos=left, % remove the tick from the right and top

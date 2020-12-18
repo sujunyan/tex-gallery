@@ -1,5 +1,5 @@
-\documentclass{article}
-\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\documentclass[conference]{IEEEtran}
+\usepackage{hyperref}
 \usepackage{graphics} % Required for the inclusion of images
 \usepackage{graphicx} % Required for the inclusion of images
 \usepackage{caption}
@@ -8,32 +8,86 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{textcomp}
+\usepackage{standalone}
+\usepackage{import}
+\usepackage{lipsum}
+\usetikzlibrary{patterns}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \title{\LaTeX\, Gallery}
-\author{Junyan Su} 
-\date{\today}
+
+\author{
+    \IEEEauthorblockN{Junyan Su}
+    \IEEEauthorblockA{junyan.su@my.cityu.edu.hk}
+}
 
 \begin{document}
 \maketitle
-% usage \includeSubmodule{name}{additional caption}
-\newcommand{\includeSubmodule}[2]{
-    \begin{figure}[ht]
+
+\begin{abstract}
+    This is a small gallery of latex examples. I found some good figures/tables in the literature and reproduce them with latex. Every example corresponds to a standalone tex file in the folder submodules. A github repository is also available\footnote{\url{https://github.com/sujunyan/tex-gallery}}.
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+    \LaTeX , Figure, Table
+\end{IEEEkeywords}
+
+\section{Introduction}
+\lipsum[4]
+
+\begin{figure}[b]
+    \begin{center}
+        \includegraphics[width=\linewidth]{submodules/1/1.pdf}
+    \end{center} 
+    \caption{This is fig.11 from~\cite{1}}
+\end{figure}
+
+% figure 2a/2b ----------------------
+\lipsum
+\begin{figure}[tb]
+    \begin{center}
+        \subfigure[A subcaption]{
+            \includegraphics[width=\linewidth]{submodules/2a/2a.pdf}
+        }
+        \subfigure[A subcaption]{
+            \includegraphics[width=\linewidth]{submodules/2b/2b.pdf}
+        }
+        %\includegraphics[width=\linewidth]{submodules/2b/2b.pdf}
+    \end{center} 
+    \caption{Two of the sub-figures from Extended Data Figure 8 in~\cite{2}.}
+\end{figure}
+
+% figure 3a/3b -----------------------------
+\begin{figure*}[htb]
+    \begin{center}
+        \subfigure[A subcaption]{
+            \includestandalone[width=.48\linewidth]{submodules/3a/3a}
+        }
+        \subfigure[A subcaption]{
+            \includestandalone[width=.48\linewidth]{submodules/3b/3b}
+        }
+    \end{center} 
+    \caption{(A figure across two columns)}
+\end{figure*}
+
+% usage \includeSubmodule{name}{additional caption}{*?}
+\newcommand{\includeSubmodule}[3]{
+    \begin{figure#3}[!htb]
         \begin{center}
             \includegraphics[width=\linewidth]{submodules/#1/#1.pdf}
         \end{center} 
-        \caption*{Figure #1#2}
-    \end{figure}
+        \caption{#2}
+    \end{figure#3}
 }
-\includeSubmodule{1}{}
-\includeSubmodule{2a}{: figures.example.01a}
-\includeSubmodule{2b}{: figures.example.01b}
-\includeSubmodule{3a}{: figures.example.02a}
-\includeSubmodule{3b}{: figures.example.02b}
-\includeSubmodule{4}{: pcode.example}
-\includeSubmodule{5}{: table.example.01}
-\includeSubmodule{6}{: table.example.02}
 
-%\bibliographystyle{unsrt}
-%\bibliography{ref}
+\lipsum[1-5]
+\includeSubmodule{4}{pcode example}{}
+\includeSubmodule{5}{table example 01}{*}
+\lipsum[1-5]
+\includeSubmodule{6}{table example 02}{*}
+\lipsum[1-5]
+
+\bibliographystyle{unsrt}
+\bibliography{ref}
 \end{document}
