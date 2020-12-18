@@ -18,7 +18,7 @@ Feel free to take a glance at the following available illustrations. You can als
 ![figure 3a](submodules/3a/3a.png)
 ### Figure 3b
 ![figure 3b](submodules/3b/3b.png)
-## tables
+## Tables
 ### Figure 5
 ![figure 5](submodules/5/5.png)
 ### Figure 6
