@@ -9,20 +9,27 @@ Feel free to take a glance at the following available illustrations. You can als
 - [etc](#etc)
 ## Figures
 ### Figure 1
-![figure 1](submodules/1/1.png)
+<img src="submodules/1/1.png" width="300"/>
+
 ### Figure 2a
-![figure 2a](submodules/2a/2a.png)
+<img src="submodules/2a/2a.png" width="300"/>
+
 ### Figure 2b
-![figure 2b](submodules/2b/2b.png)
+<img src="submodules/2b/2b.png" width="300"/>
+
 ### Figure 3a
-![figure 3a](submodules/3a/3a.png)
+<img src="submodules/3a/3a.png" width="300"/>
+
 ### Figure 3b
-![figure 3b](submodules/3b/3b.png)
+<img src="submodules/3b/3b.png" width="300"/>
+
 ## Tables
 ### Figure 5
-![figure 5](submodules/5/5.png)
+<img src="submodules/5/5.png" width="300"/>
+
 ### Figure 6
-![figure 6](submodules/6/6.png)
+<img src="submodules/6/6.png" width="300"/>
+
 ## etc
 ### Figure 4
-![figure 4](submodules/4/4.png)
+<img src="submodules/4/4.png" width="300"/>
