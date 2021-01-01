@@ -23,6 +23,8 @@ Feel free to take a glance at the following available illustrations. You can als
 ![figure 5](submodules/5/5.png)
 ### Figure 6
 ![figure 6](submodules/6/6.png)
+### Notation table
+![Notation](submodules/notation/notation.png)
 ## etc
 ### Figure 4
 ![figure 4](submodules/4/4.png)
