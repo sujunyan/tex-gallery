@@ -1,27 +1,27 @@
-\documentclass[tikz]{standalone}
-\usepackage{pgfplots}
-\usetikzlibrary{calc}
+%\documentclass[tikz]{standalone}
+%\usepackage{pgfplots}
+%\usetikzlibrary{calc}
 
 % the figures style are inspired by \url{https://www.nature.com/articles/nature14122/figures/12}.
 % For the use of draw group line, refer to https://tex.stackexchange.com/questions/55554/how-can-i-mix-an-ybar-and-an-ybar-stacked-with-pgfplots
-\begin{document}
+%\begin{document}
 \begin{tikzpicture}
 \pgfplotsset{my error bar/.style={error bars/.cd,y dir =both, y explicit}}
 \pgfplotsset{
     subplotStyle/.style n args ={1}{
         axis x line = bottom, % change the default axis box.
         axis y line = left,
-        width = 0.25\linewidth ,
+        width = 0.2\linewidth ,
         height = 0.4\linewidth ,
         ybar=0,
         bar width = 0.02\linewidth ,
         ytick={0,5,...,45},
         ymin=0,ymax=45,
-        nodes={scale=0.5},
+        nodes={scale=1},
         xtick=data,
     }
 }
-\newcommand{\subplotxoffset}{0.4cm}
+\newcommand{\subplotxoffset}{.04\linewidth}
 % plot1 ---------------------------
 \newcommand{\subplotName}{shGFP}
 \begin{axis}[
@@ -37,7 +37,7 @@
 \addplot [
     nodes near coords={**},
     nodes near coords style = {
-       yshift=15pt,xshift=10pt,
+       yshift=15pt,xshift=0pt,
     },
     fill=blue!40,
     my error bar,
@@ -76,7 +76,7 @@
 \addplot [
     nodes near coords={*},
     nodes near coords style = {
-       yshift=5pt,xshift=10pt,
+       yshift=5pt,xshift=0pt,
     },
     fill=red!40,my error bar
     ] coordinates {(\subplotName,10)+-(0,2)};
@@ -98,7 +98,7 @@
 \addplot [
     nodes near coords={**},
     nodes near coords style = {
-       yshift=0pt,xshift=10pt,
+       yshift=0pt,xshift=0pt,
     },
     fill=red!40,my error bar] 
     coordinates {(\subplotName,10)+-(0,0.5)};
@@ -121,7 +121,7 @@
 \addplot [
     nodes near coords={*},
     nodes near coords style = {
-       yshift=5pt,xshift=10pt,
+       yshift=5pt,xshift=0pt,
     },
     fill=blue!40,my error bar
     ] coordinates {(\subplotName,28)+-(0,2)};
@@ -155,7 +155,7 @@
 \addplot [
     nodes near coords={**},
     nodes near coords style = {
-       yshift=0pt,xshift=10pt,
+       yshift=0pt,xshift=0pt,
     },
     fill=blue!40,my error bar
     ] 
@@ -164,8 +164,8 @@
 %% end of the plots ----------------------
 
 % plot the title for the two groups
-\node [scale=0.8] (title1) at ($(plot1.north)!0.5!(plot3.north)+(0,15pt)$) {HCC15 - Sensitized Line};
-\node [scale=0.8] (title2) at ($(plot4.north)!0.5!(plot6.north)+(0,15pt)$) {H460 - Protected Line};
+\node [scale=1] (title1) at ($(plot1.north)!0.5!(plot3.north)+(0,15pt)$) {HCC15 - Sensitized Line};
+\node [scale=1] (title2) at ($(plot4.north)!0.5!(plot6.north)+(0,15pt)$) {H460 - Protected Line};
 
 % self draw the legend ---------------
 \node [matrix,fill=none,draw=none] (mylegendnode) at ($(title1.north)!0.5!(title2.north)+(0,8pt)$)
@@ -182,4 +182,4 @@
 
 \end{tikzpicture}
 
-\end{document}
+%\end{document}

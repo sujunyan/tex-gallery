@@ -14,6 +14,7 @@
 \usepackage{import}
 \usepackage{lipsum}
 \usetikzlibrary{patterns}
+\usetikzlibrary{calc}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \title{\LaTeX\, Gallery}
@@ -37,24 +38,22 @@
 
 \section{Introduction}
 % figure 2a/2b ----------------------
-\lipsum[1]
+\lipsum
 \begin{figure}[tb]
-    %\begin{center}
       \centering
-        \subfigure[A subcaption]{
-            %\includegraphics[width=\linewidth]{submodules/2a/2a.pdf}
-            \input{submodules/2a/2a.tex}
-            %\includestandalone[width=\linewidth]{submodules/2a/2a}
-        }
-        \centering
-        \subfigure[A subcaption]{
-            \includegraphics[width=\linewidth]{submodules/2b/2b}
-        }
-        %\includegraphics[width=\linewidth]{submodules/2b/2b.pdf}
-    %\end{center} 
-    \caption{Two of the sub-figures from Extended Data Figure 8 in~\cite{2}.}
+      %\includegraphics[width=\linewidth]{submodules/2a/2a.pdf}
+      \input{submodules/2a/2a.tex}
+    \caption{sub-figure from Extended Data Figure 8 in~\cite{2}.}
 \end{figure}
 
+\lipsum[1]
+\begin{figure*}[tb]
+  \centering
+  \input{submodules/2b/2b.tex}
+  \caption{sub-figure from Extended Data Figure 8 in~\cite{2}.}
+\end{figure*}
+
+\lipsum
 \lipsum[1]
 % figure 1 ------------------------------------------
 \begin{figure*}[htb]
