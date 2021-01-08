@@ -2,8 +2,11 @@
 \usepackage{hyperref}
 \usepackage{graphics} % Required for the inclusion of images
 \usepackage{graphicx} % Required for the inclusion of images
+\usepackage{leftidx}
 \usepackage{caption}
+\usepackage[flushleft]{threeparttable}
 \usepackage{amssymb}
+\usepackage{tabularx}
 \usepackage{amsmath}
 \usepackage{subfigure}
 \usepackage{pifont}
@@ -12,11 +15,15 @@
 \usepackage{textcomp}
 \usepackage{standalone}
 \usepackage{import}
+\usepackage{environ}
 \usepackage{lipsum}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{xcolor}
 \usetikzlibrary{patterns}
 \usetikzlibrary{calc}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \title{\LaTeX\, Gallery}
 
 \author{
@@ -67,17 +74,17 @@
 % figure 3a/3b -----------------------------
 \lipsum
 \begin{figure*}[htb]
-    \begin{center}
-        \subfigure[A subcaption]{
-            %\includestandalone[width=.48\linewidth]{submodules/3a/3a}
-            \includegraphics[width=0.48\linewidth]{submodules/3a/3a.pdf}
-        }
-        \subfigure[A subcaption]{
-            \includegraphics[width=0.48\linewidth]{submodules/3b/3b.pdf}
-            %\includestandalone[width=.48\linewidth]{submodules/3b/3b}
-        }
-    \end{center} 
-    \caption{(A figure across two columns)}
+  \centering
+  \input{submodules/3/3.tex}
+        %\subfigure[A subcaption]{
+        %    %\includestandalone[width=.48\linewidth]{submodules/3a/3a}
+        %    \includegraphics[width=0.48\linewidth]{submodules/3a/3a.pdf}
+        %}
+        %\subfigure[A subcaption]{
+        %    \includegraphics[width=0.48\linewidth]{submodules/3b/3b.pdf}
+        %    %\includestandalone[width=.48\linewidth]{submodules/3b/3b}
+        %}
+  \caption{(A figure across two columns)}
 \end{figure*}
 
 % usage \includeSubmodule{name}{additional caption}{*?}
@@ -91,9 +98,11 @@
 }
 
 \lipsum[1]
-\includeSubmodule{4}{pcode example}{}
-\lipsum[1]
-\includeSubmodule{6}{table example 02}{*}
+%\includeSubmodule{4}{pcode example}{}
+\input{submodules/4/4.tex}
+\lipsum
+%\includeSubmodule{6}{table example 02}{*}
+\includeSubmodule{5}{table example 01}{*}
 \lipsum[1]
 
 \newcommand{\xmark}{\ding{55}}%package pifont
@@ -110,7 +119,31 @@
   \caption{Table~II from~\cite{deng2017energy}}
 \end{table}
 \lipsum
-\includeSubmodule{5}{table example 01}{*}
+%%% table
+\begin{table}[htb]
+    \caption{Population variation in hatch success(mean percent) of unfertilized eggs for females from populations sampled in 1997.}
+    \begin{tabularx}{\linewidth}{lXXXr}
+        \hline  \\[-10pt]
+        Population & mean (\%)  &\begin{tabular}[c]{@{}l@{}}Standard\\ deviation\end{tabular}   & Range & N  \\ \hline
+        Population name1$^T$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name2$^T$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name3$^T$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name4$^P$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name5$^P$ & 10 & 1 & 0-50 & 10  \\ 
+        Population name6$^P$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name7$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name8$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        Population name9$^L$ & 10 & 1 & 0-50 & 10 \\ 
+        \hline 
+    \end{tabularx}
+    \begin{tablenotes}
+    \item $\leftidx{^T}{}$ = \footnotesize{temporary stream},
+    $\leftidx{^P}{}$ = \footnotesize{permanent streams}, 
+    $\leftidx{^L}{}$ = \footnotesize{lakes}.
+    \item
+    \item 
+    \end{tablenotes}
+\end{table}
 \lipsum
 
 \bibliographystyle{unsrt}

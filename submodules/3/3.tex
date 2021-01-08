@@ -1,0 +1,118 @@
+
+\begin{tikzpicture}[scale=0.95]
+\pgfplotstableread{
+budget    name1   name2   name3   name4    name5    name6
+0.2 1   1   1   1   1   1
+0.4 10  10  10  10  10  10
+0.6 30  30  30  30  30  30 
+0.8 50  49  51  48  50  50
+1.0 110 110 110 110 110 110
+1.2 120 110 120 110 110 110
+1.4 130 130 130 110 110 130
+1.6 150 150 150 110 110 150
+1.8 160 150 150 160 111 150
+2.0 170 170 170 100 160 160
+}{\datatablea}
+
+\pgfplotstableread{
+X   name1   name2   name3   name4   name5   name6
+0.2 1e3 1e3 1e5 1e6 1e7 1e8
+0.4 1e3 1.1e3 2e5 1e6 1e7 1e8
+0.6 1e3 1.2e3 2e5 1e6 1e7 1e8
+0.8 1e3 1.5e3 2e5 1e6 1e7 1e8
+1.0 1e3 2e3 2e5 1e6 1e7 1e8
+1.2 1e3 2e3 2e5 1e6 1e7 1e8
+1.4 1e3 2e3 2e5 1e6 1e7 1e8
+1.6 1e3 2e3 2e5 1e6 1e7 1e8
+1.8 1e3 1.8e3 2e5 1e6 1e7 1e8
+2.0 1e3 1.8e3 2e5 1e6 1e7 1e8
+}{\datatableb}
+% table read done. ----------------------------
+
+%% fig a ------------------------------------
+\begin{axis}[
+  name=leftplot,
+  width = .6\linewidth, height = 0.32\linewidth,
+  %title={The Title},
+  title style={at={(0.5,-0.35)}},
+  xtick pos=bottom,
+  ytick pos=left, % remove the tick from the right and top
+  ybar=0,
+  ylabel={ylabel},
+  ylabel style={at={(axis description cs:0.03,0.5)}},
+  ytick={0,20,...,180},
+  bar width=3pt,
+  %enlarge x limits=0.15,
+  ymin=0, ymax=180,
+  % legned related -------------
+  legend image code/.code={
+      \draw [#1] (0cm,-0.1cm) rectangle (0.35cm,0.1cm);
+  },
+  legend style={
+      %at={(0.13,1)},
+      legend pos=north west,
+      nodes={scale=0.8},
+      draw = none,        % without box
+      cells={anchor=west}, % algin left
+  },
+  xlabel={xlabel},
+  % xtick related 
+  xtick=data,
+  xticklabels from table={\datatablea}{budget},
+  %xticklabel style={
+  %j    rotate=45,xshift=-100,yshift=-100,anchor=mid east
+  %j},
+] % end of options of axis environment
+
+\newcommand{\mysubplot}[2]{
+    \addplot[#2] table [x=budget,y=#1] {\datatablea};
+    \addlegendentry{#1};
+}
+\mysubplot{name1}{}
+\mysubplot{name2}{pattern=crosshatch dots}
+\mysubplot{name3}{pattern=north east lines}
+\mysubplot{name4}{pattern=crosshatch}
+\mysubplot{name5}{pattern=north west lines}
+\mysubplot{name6}{fill=black}
+
+\end{axis}
+
+%% fig b --------------------------
+
+\begin{axis}[
+  at={($(leftplot.east)+(.08\linewidth,0)$)},
+  anchor=west,
+  xlabel={xlabel},
+  ylabel={ylabel},
+  ylabel style={at={(axis description cs:0.05,0.5)}},
+  xmin= 0.2, xmax= 2.0, 
+  legend style = {
+      at={(0.35,0.28)},
+      anchor=center,
+      legend columns = {2},
+      nodes={scale=0.8}, % make the legend box smaller
+      fill=none,
+      draw=none,
+      /tikz/every even column/.append style={column sep=.03\linewidth},
+  },
+  width = .43\linewidth,
+  height = 0.32\linewidth,
+  mark options={solid},
+  ymode=log, % the log scale
+  ytick={1e3,1e4,1e5,1e6,1e7,1e8},
+  ytick pos=left, % remove the tick from the right and top
+  xtick pos=bottom,
+]
+    \newcommand{\mysubplot}[2]{
+        \addplot [#2] table [x=X,y=#1] {\datatableb};
+        \addlegendentry{#1};
+    }
+    \mysubplot{name1}{mark=diamond}
+    \mysubplot{name2}{mark=x}
+    \mysubplot{name3}{mark=o}
+    \mysubplot{name4}{mark=triangle}
+    \mysubplot{name5}{mark=+}
+    \mysubplot{name6}{mark=square}
+
+\end{axis}
+\end{tikzpicture}

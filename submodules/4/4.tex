@@ -1,14 +1,14 @@
-\documentclass[varwidth]{standalone}
-\usepackage[ruled,linesnumbered]{algorithm2e}
-\usepackage{xcolor}
+%\documentclass[varwidth]{standalone}
+%\usepackage[ruled,linesnumbered]{algorithm2e}
+%\usepackage{xcolor}
+%
+%\begin{document}
 
-\begin{document}
-
-\begin{algorithm}[H]
+\begin{algorithm}[h]
 %\SetAlgoLined 
 \SetAlgoVlined % Remove the end for each block . you can also use vlined in option of package algorithm2e
 \DontPrintSemicolon
-\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\newcommand\mycommfont[1]{\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont} % change the comment style
 
 \caption{Example code}
@@ -39,4 +39,4 @@ $\sum_{i=1}^{\infty}:=0$ \tcp*{this is a comment}
 }
  
 \end{algorithm}
-\end{document}
+%\end{document}

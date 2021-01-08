@@ -12,13 +12,17 @@
         axis x line = bottom, % change the default axis box.
         axis y line = left,
         width = 0.2\linewidth ,
-        height = 0.4\linewidth ,
+        height = 0.3\linewidth ,
         ybar=0,
-        bar width = 0.02\linewidth ,
+        bar width = 0.018\linewidth ,
         ytick={0,5,...,45},
         ymin=0,ymax=45,
         nodes={scale=1},
         xtick=data,
+        xticklabel style={
+          %font=\tiny,
+          scale={0.9},
+        },
     }
 }
 \newcommand{\subplotxoffset}{.04\linewidth}
