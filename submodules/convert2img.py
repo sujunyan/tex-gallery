@@ -8,8 +8,9 @@ from pdf2image.exceptions import (
 
 
 curDir = pathlib.Path(__file__).parent.absolute()
-nameL = ["1","2a","2b","3a","3b","4","5","6","notation"]
-nameL = ["3b"]
+## fig3a will takes a lot of time
+#nameL = ["alg1","fig1","fig2a","fig2b","fig3a","fig3b","tab1","tab2","notation"]
+#nameL = ["alg1","fig1","fig2a","fig2b","fig3b","tab1","tab2","notation"]
 for name in nameL:
     images = convert_from_path(curDir.joinpath("{0}/{0}.pdf".format(name)))
     images[0].save(curDir.joinpath("{0}/{0}.png".format(name)),"png")

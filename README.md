@@ -8,30 +8,30 @@ Feel free to take a glance at the following available illustrations. You can als
 - [Tables](#Tables)
 - [etc](#etc)
 ## Figures
-### Figure 1 [[SRC]](submodules/1/1.tex)
-![figure 1](submodules/1/1.png)
+### Figure 1 [[SRC]](submodules/fig1/fig1.tex)
+![figure 1](submodules/fig1/fig1.png)
 
-### Figure 2a [[SRC]](submodules/2a/2a.tex)
-![figure 2a](submodules/2a/2a.png)
+### Figure 2a [[SRC]](submodules/fig2a/fig2a.tex)
+![figure 2a](submodules/fig2a/fig2a.png)
 
-### Figure 2b [[SRC]](submodules/2b/2b.tex)
-![figure 2b](submodules/2b/2b.png)
+### Figure 2b [[SRC]](submodules/fig2b/fig2b.tex)
+![figure 2b](submodules/fig2b/fig2b.png)
 
-### Figure 3a [[SRC]](submodules/3a/3a.tex)
-![figure 3a](submodules/3a/3a.png)
+### Figure 3a [[SRC]](submodules/fig3a/fig3a.tex)
+![figure 3a](submodules/fig3a/fig3a.png)
 
-### Figure 3b [[SRC]](submodules/3b/3b.tex)
-![figure 3b](submodules/3b/3b.png)
+### Figure 3b [[SRC]](submodules/fig3b/fig3b.tex)
+![figure 3b](submodules/fig3b/fig3b.png)
 
 ## Tables
-### Figure 5 [[SRC]](submodules/5/5.tex)
-![figure 5](submodules/5/5.png)
-### Figure 6 [[SRC]](submodules/6/6.tex)
-![figure 6](submodules/6/6.png)
+### Table 1 [[SRC]](submodules/tab1/tab1.tex)
+![Table 1](submodules/tab1/tab1.png)
+### Table 2 [[SRC]](submodules/tab2/tab2.tex)
+![Table 2](submodules/tab2/tab2.png)
 
 ### Notation table [[SRC]](submodules/notation/notation.tex)
 ![Notation](submodules/notation/notation.png)
 
 ## etc
-### Figure 4 [[SRC]](submodules/1/1.tex)
-![figure 4](submodules/4/4.png)
+### Algorithm 1 [[SRC]](submodules/alg1/alg1.tex)
+![Algorithm 1](submodules/alg1/alg1.png)
