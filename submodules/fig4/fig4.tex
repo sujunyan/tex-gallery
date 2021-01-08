@@ -5,7 +5,10 @@
 %% refer to fig4 in https://papers.nips.cc/paper/2020/file/83eaa6722798a773dd55e8fc7443aa09-Paper.pdf
 
 %\begin{document}
-\begin{tikzpicture}[scale=1]
+\begin{tikzpicture}[
+  scale=1,
+  baseline={([yshift=-.8ex]current bounding box.center)},
+  ]
 
 \newcommand{\subplotoffset}{0.06\linewidth}
 \newcommand{\mygreen}{green!60!black}
@@ -28,7 +31,7 @@
   },
   subplotStyle/.style n args ={1}{
       smooth, no markers,
-      width = 0.32\linewidth,
+      width = 0.33\linewidth,
       height = 0.26\linewidth,
       axis x line=bottom,
       axis y line=left,
@@ -36,7 +39,6 @@
       xmin=0,
   },
 }
-
 
 %% plot1 ------------------------------
 \begin{axis}[
@@ -95,7 +97,7 @@
 \addplot[blue,line width=\mylinewidth] coordinates  {(0,4) (100,4)};
 \end{axis}
 
-\node [] (mylegendnode) at ($(plot1.south)!0.5!(plot3.south)+(0,-0.1\linewidth)$) {\pgfplotslegendfromname{legendName}};
+\node [anchor=center] (mylegendnode) at ($(plot1.outer south west)!0.5!(plot3.outer south east)+(0,-0.02\linewidth)$) {\pgfplotslegendfromname{legendName}};
 %\ref{legendName}
 \end{tikzpicture}
 %\end{document}
