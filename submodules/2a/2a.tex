@@ -1,20 +1,26 @@
-\documentclass[tikz]{standalone}
-\usepackage{pgfplots}
+%\documentclass[tikz]{standalone}
+%\usepackage{pgfplots}
 % the figures style are inspired by \url{https://www.nature.com/articles/nature14122/figures/12}.
 % For the use of draw group line, refer to https://tex.stackexchange.com/questions/55554/how-can-i-mix-an-ybar-and-an-ybar-stacked-with-pgfplots
-\begin{document}
+%\begin{document}
 
-\newcounter{groupcount}
+
+
+% figure a -------------------------------------------------------
+
+
+\begin{tikzpicture}
+\newcounter{groupcnt}
 % draw group line={<group column>}{<group value>}{<group label>}{<vertical offset>}{<line extension>}{<table name>}
 \pgfplotsset{
     draw group line/.style n args={6}{
         after end axis/.append code={
-            \setcounter{groupcount}{0}
+            \setcounter{groupcnt}{0}
             \pgfplotstableforeachcolumnelement{#1}\of#6\as\cell{%
                 \def\temp{#2}
                 \ifx\temp\cell % if current row is in the group
-                    \ifnum\thegroupcount=0
-                        \stepcounter{groupcount}
+                    \ifnum\thegroupcnt=0
+                        \stepcounter{groupcnt}
                         \pgfplotstablegetelem{\pgfplotstablerow}{X}\of#6
                         \coordinate [yshift=#4] (startgroup) at (axis cs:\pgfplotsretval,0);
                     \else
@@ -22,8 +28,8 @@
                         \coordinate [yshift=#4] (endgroup) at (axis cs:\pgfplotsretval,0);
                     \fi
                 \else % if we reach the end of current group
-                    \ifnum\thegroupcount=1
-                        \setcounter{groupcount}{0}
+                    \ifnum\thegroupcnt=1
+                        \setcounter{groupcnt}{0}
                         \draw [
                             shorten >=-#5,
                             shorten <=-#5
@@ -31,8 +37,8 @@
                     \fi
                 \fi
             }% end of for each column element
-            \ifnum\thegroupcount=1 % if we are at the end row
-                        \setcounter{groupcount}{0}
+            \ifnum\thegroupcnt=1 % if we are at the end row
+                        \setcounter{groupcnt}{0}
                         \draw [
                             shorten >=-#5,
                             shorten <=-#5
@@ -42,10 +48,11 @@
     }
 } % draw group line end -----------------
 
-\pgfplotsset{my error bar/.style={error bars/.cd,y dir =both, y explicit}}
+\pgfplotsset{my error bar/.style={
+    error bars/.cd,y dir =both, y explicit,
+  }
+}
 
-% figure a -------------------------------------------------------
-\begin{tikzpicture}
 \pgfplotstableread{
 X Gp  name EGFR EGFRerr BRG1 BRG1err EZH2 EZH2err
 1 shGFP   Vehicle 0 0 1 0.1 2 1
@@ -75,7 +82,7 @@ X Gp  name EGFR EGFRerr BRG1 BRG1err EZH2 EZH2err
         \draw [#1] (0cm,-0.1cm) rectangle (0.2cm,0.1cm);
     },
     legend style={
-        at={(0.15,1)},
+        at={(0.18,1)},
         nodes={scale=0.7},
         draw = none     % without box
     },
@@ -84,11 +91,13 @@ X Gp  name EGFR EGFRerr BRG1 BRG1err EZH2 EZH2err
     xtick=data,
     xticklabels from table={\tabletwo}{name},
     xticklabel style={
-        rotate=45,xshift=-100,yshift=-100,anchor=mid east
+        rotate=45,xshift=-85,yshift=-85,
+        anchor=mid east,
+        scale=0.85,
     },
-    draw group line={Gp}{shGFP}{shGFP}{-140}{4pt}{\tabletwo},
-    draw group line={Gp}{shEGFR}{shEGFR}{-140}{4pt}{\tabletwo},
-    draw group line={Gp}{BRG1oe}{BRG1 oe}{-140}{4pt}{\tabletwo},
+    draw group line={Gp}{shGFP}{shGFP}{-120}{4pt}{\tabletwo},
+    draw group line={Gp}{shEGFR}{shEGFR}{-120}{4pt}{\tabletwo},
+    draw group line={Gp}{BRG1oe}{BRG1 oe}{-120}{4pt}{\tabletwo},
     ] % end of options of axis environment
 
 % the "!" denotes the intensity
@@ -101,4 +110,4 @@ X Gp  name EGFR EGFRerr BRG1 BRG1err EZH2 EZH2err
 \end{axis}
 \end{tikzpicture}
 
-\end{document}
+%\end{document}

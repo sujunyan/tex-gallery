@@ -1,63 +1,59 @@
-\documentclass[tikz]{standalone}
-\usepackage{pgfplots}
 % style from fig.11 in https://ieeexplore.ieee.org/abstract/document/9031358
-\begin{document}
-    \begin{tikzpicture}
-    \pgfplotstableread{datafile1.csv}{\datatable}
-    \begin{axis}[
-        xlabel={Computation time passed~[minutes]},
-        ylabel={bits per channel use},
-        ylabel style={at={(axis description cs:0.06,0.5)}},
-        xmin= 0, xmax= 120, ymin= 0,
-        legend style = {
-            legend pos=south east,
-            legend columns = {2},
-            nodes={scale=0.5}, % make the legend box smaller
-            %font = {\tiny},
-        },
-        grid = major,
-        grid style=dashed,
-        mark repeat={8},
-        width = \linewidth,
-        height = 0.5\linewidth,
-        mark options={solid},
-        %% extra label for information rate
-        every axis/.append style={
-            extra description/.code={
-                \node[scale=0.5] at (0.07,0.93) {Information Rate};
-                \node[scale=0.5] at (0.93,0.93) {Information Rate};
-            },
-        },
-    ]
+\begin{tikzpicture}
+\pgfplotstableread{submodules/1/datafile1.csv}{\datatable}
+\begin{axis}[
+  xlabel={Computation time passed~[minutes]},
+  ylabel={bits per channel use},
+  ylabel style={at={(axis description cs:0.03,0.5)}},
+  xmin= 0, xmax= 120, ymin= 0,
+  legend style = {
+      legend pos=south east,
+      legend columns = {2},
+      nodes={scale=0.8}, % make the legend box smaller
+      %font = {\tiny},
+  },
+  grid = major,
+  grid style=dashed,
+  mark repeat={8},
+  width = \linewidth,
+  height = 0.5\linewidth,
+  mark options={solid},
+  %% extra label for information rate
+  every axis/.append style={
+      extra description/.code={
+          \node[scale=0.5] at (0.07,0.93) {Information Rate};
+          \node[scale=0.5] at (0.93,0.93) {Information Rate};
+      },
+  },
+] % end of axis setting
 
-    %1
-    \addplot[red,mark=o,dashed] table [x index=0, y index=1] {\datatable};
-    \addlegendentry{EM-type algorithm~[13] with 4-state FSMC}
+  %1
+  \addplot[red,mark=o,dashed] table [x index=0, y index=1] {\datatable};
+  \addlegendentry{EM-type algorithm~[13] with 4-state FSMC}
 
-    %2
-    \addplot[dashed,mark=o] table [x index=0, y index=2] {\datatable};
-    \addlegendentry{EM-type algorithm~[13] with 16-state FSMC}
+  %2
+  \addplot[dashed,mark=o] table [x index=0, y index=2] {\datatable};
+  \addlegendentry{EM-type algorithm~[13] with 16-state FSMC}
 
-    %3
-    \addplot[blue,mark=diamond] table [x index=0, y index=3] {\datatable};
-    \addlegendentry{Algorithm~11 with 1-qubit QSC}
+  %3
+  \addplot[blue,mark=diamond] table [x index=0, y index=3] {\datatable};
+  \addlegendentry{Algorithm~11 with 1-qubit QSC}
 
-    %4
-    \addplot[red,mark=+] table [x index=0, y index=4] {\datatable};
-    \addlegendentry{Algorithm~11 with 4-state FSMC}
+  %4
+  \addplot[red,mark=+] table [x index=0, y index=4] {\datatable};
+  \addlegendentry{Algorithm~11 with 4-state FSMC}
 
-    %5
-    \addplot[mark=+] table [x index=0, y index=5] {\datatable};
-    \addlegendentry{Algorithm~11 with 16-state FSMC}
+  %5
+  \addplot[mark=+] table [x index=0, y index=5] {\datatable};
+  \addlegendentry{Algorithm~11 with 16-state FSMC}
 
-    %6
-    \addplot[red,mark=diamond] table [x index=0, y index=6] {\datatable};
-    \addlegendentry{Algorithm~11 with 2-qubit QSC}
+  %6
+  \addplot[red,mark=diamond] table [x index=0, y index=6] {\datatable};
+  \addlegendentry{Algorithm~11 with 2-qubit QSC}
 
-    %7
-    \addplot[dashed] table [x index=0, y index=7] {\datatable};
-    \addlegendentry{Estimated Information Rate~(Alg.~9)}
+  %7
+  \addplot[dashed] table [x index=0, y index=7] {\datatable};
+  \addlegendentry{Estimated Information Rate~(Alg.~9)}
 
-    \end{axis}
-    \end{tikzpicture}
-\end{document}
+\end{axis}
+\end{tikzpicture}

@@ -43,7 +43,8 @@
       \centering
         \subfigure[A subcaption]{
             %\includegraphics[width=\linewidth]{submodules/2a/2a.pdf}
-            \includestandalone[width=\linewidth]{submodules/2a/2a}
+            \input{submodules/2a/2a.tex}
+            %\includestandalone[width=\linewidth]{submodules/2a/2a}
         }
         \centering
         \subfigure[A subcaption]{
@@ -58,7 +59,8 @@
 % figure 1 ------------------------------------------
 \begin{figure*}[htb]
     \begin{center}
-        \includegraphics[width=.8\linewidth]{submodules/1/1.pdf}
+        %\includegraphics[width=.8\linewidth]{submodules/1/1.pdf}
+        \input{submodules/1/1.tex}
     \end{center} 
     \caption{This is fig.11 from~\cite{1}}
 \end{figure*}
