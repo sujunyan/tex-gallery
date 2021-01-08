@@ -23,6 +23,9 @@ Feel free to take a glance at the following available illustrations.
 ### Figure 3b [[SRC]](submodules/fig3b/fig3b.tex)
 ![figure 3b](submodules/fig3b/fig3b.png)
 
+### Figure 4 [[SRC]](submodules/fig4/fig4.tex)
+![figure 4](submodules/fig4/fig4.png)
+
 ## Tables
 ### Table 1 [[SRC]](submodules/tab1/tab1.tex)
 ![Table 1](submodules/tab1/tab1.png)
