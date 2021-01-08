@@ -1,0 +1,101 @@
+%\documentclass[tikz]{standalone}
+%\usepackage{pgfplots}
+%\usepgfplotslibrary{fillbetween}
+%\usetikzlibrary{calc}
+%% refer to fig4 in https://papers.nips.cc/paper/2020/file/83eaa6722798a773dd55e8fc7443aa09-Paper.pdf
+
+%\begin{document}
+\begin{tikzpicture}[scale=1]
+
+\newcommand{\subplotoffset}{0.06\linewidth}
+\newcommand{\mygreen}{green!60!black}
+\newcommand{\mylinewidth}{1.2pt}
+% \plotdata{number}{color}{other options}
+\newcommand{\plotdata}[3]{
+  \addplot[#2,#3,line width=\mylinewidth] table [x=X, y=data#1] {\datatable};
+  
+  \addplot[name path=A#1, draw=none,forget plot] table [x=X, y=data#1l] {\datatable};
+  \addplot[name path=B#1, draw=none,forget plot] table [x=X, y=data#1u] {\datatable};
+  \addplot[#2!20,forget plot] fill between[of=A#1 and B#1]; 
+}
+% read the external table
+\pgfplotstableread[col sep=comma]{submodules/fig4/datafile1.csv}{\datatable}
+\pgfplotsset{
+  title style={
+    at={(0.5,-0.2)},
+    align=left, 
+    anchor=north,
+  },
+  subplotStyle/.style n args ={1}{
+      smooth, no markers,
+      width = 0.32\linewidth,
+      height = 0.26\linewidth,
+      axis x line=bottom,
+      axis y line=left,
+      enlargelimits=auto,
+      xmin=0,
+  },
+}
+
+
+%% plot1 ------------------------------
+\begin{axis}[
+    name=plot1,
+    title={(a) Single-circle},
+    ylabel={Root\\ Mean\\ Squared\\ Error\\ Averged\\ Over\\ 20runs},
+    ylabel style={
+      rotate=-90,
+      anchor=center,
+      align=center,
+      scale={0.7},
+      at={(0.08,0.5)},
+    },
+    legend entries={Implicit,MDN-3,MDN-4,MDN-6,KDE},
+    legend columns=-1,
+    legend style={
+      fill=none,
+    },
+    legend to name={legendName},
+    subplotStyle={},
+]
+\plotdata{1}{red}{}
+\plotdata{2}{\mygreen}{}
+\plotdata{3}{\mygreen}{dotted}
+\plotdata{4}{\mygreen}{dashdotted}
+\addplot[blue,line width=\mylinewidth] coordinates  {(0,0.5) (100,0.5)};
+\end{axis}
+
+%% plot2 --------------------------
+\begin{axis}[
+  name=plot2,
+  at={($(plot1.east)+(\subplotoffset,0)$)},
+  anchor=west,
+  title={(b) Double-circle},
+  subplotStyle={},
+]
+\plotdata{5}{red}{}
+\plotdata{6}{\mygreen}{}
+\plotdata{7}{\mygreen}{dotted}
+\plotdata{8}{\mygreen}{dashdotted}
+\addplot[blue,line width=\mylinewidth] coordinates  {(0,1) (100,1)};
+\end{axis}
+
+%% plot3 ------------------------------------
+\begin{axis}[
+  name=plot3,
+  at={($(plot2.east)+(\subplotoffset,0)$)},
+  anchor=west,
+  title={(c) High-dimentional \\Double-circle},
+  subplotStyle={},
+]
+\plotdata{5}{red}{}
+\plotdata{6}{\mygreen}{}
+\plotdata{7}{\mygreen}{dotted}
+\plotdata{8}{\mygreen}{dashdotted}
+\addplot[blue,line width=\mylinewidth] coordinates  {(0,4) (100,4)};
+\end{axis}
+
+\node [] (mylegendnode) at ($(plot1.south)!0.5!(plot3.south)+(0,-0.1\linewidth)$) {\pgfplotslegendfromname{legendName}};
+%\ref{legendName}
+\end{tikzpicture}
+%\end{document}

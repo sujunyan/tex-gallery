@@ -19,6 +19,7 @@
 \usepackage{lipsum}
 \usepackage[ruled,linesnumbered]{algorithm2e}
 \usepackage{xcolor}
+\usepgfplotslibrary{fillbetween}
 \usetikzlibrary{patterns}
 \usetikzlibrary{calc}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
@@ -76,15 +77,15 @@
 \begin{figure*}[htb]
   \centering
   \input{submodules/3/3.tex}
-        %\subfigure[A subcaption]{
-        %    %\includestandalone[width=.48\linewidth]{submodules/3a/3a}
-        %    \includegraphics[width=0.48\linewidth]{submodules/3a/3a.pdf}
-        %}
-        %\subfigure[A subcaption]{
-        %    \includegraphics[width=0.48\linewidth]{submodules/3b/3b.pdf}
-        %    %\includestandalone[width=.48\linewidth]{submodules/3b/3b}
-        %}
   \caption{(A figure across two columns)}
+\end{figure*}
+
+%% fig4 -------------------------------
+\lipsum
+\begin{figure*}[htb]
+  \centering
+  \input{submodules/fig4/fig4.tex}
+  \caption{This is a caption}
 \end{figure*}
 
 % usage \includeSubmodule{name}{additional caption}{*?}
@@ -99,10 +100,10 @@
 
 \lipsum[1]
 %\includeSubmodule{4}{pcode example}{}
-\input{submodules/4/4.tex}
+\input{submodules/4/4.tex} %% pcode
 \lipsum
 %\includeSubmodule{6}{table example 02}{*}
-\includeSubmodule{5}{table example 01}{*}
+\includeSubmodule{5}{table example 01}{*} 
 \lipsum[1]
 
 \newcommand{\xmark}{\ding{55}}%package pifont
@@ -119,7 +120,8 @@
   \caption{Table~II from~\cite{deng2017energy}}
 \end{table}
 \lipsum
-%%% table
+
+%%% table ------------------------------
 \begin{table}[htb]
     \caption{Population variation in hatch success(mean percent) of unfertilized eggs for females from populations sampled in 1997.}
     \begin{tabularx}{\linewidth}{lXXXr}
