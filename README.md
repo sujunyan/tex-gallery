@@ -1,6 +1,5 @@
 # My LaTeX Gallery
-This is a small gallery of latex examples. I found some good figures/tables in the literature and reproduce them with latex. 
-Every example corresponds to a **standalone** tex file in the folder `submodules`. 
+This is a small gallery of latex examples. I found some good figures/tables in the literature and reproduce them with latex. This is an illustrative branch without standalone submodules. 
 Feel free to take a glance at the following available illustrations. You can also find it in the ![main pdf file](main.pdf). 
 
 # Illustrations
