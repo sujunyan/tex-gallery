@@ -26,6 +26,7 @@ Feel free to take a glance at the following available illustrations.
 ### Figure 4 [[SRC]](submodules/fig4/fig4.tex)
 ![figure 4](submodules/fig4/fig4.png)
 
+
 ## Tables
 ### Table 1 [[SRC]](submodules/tab1/tab1.tex)
 ![Table 1](submodules/tab1/tab1.png)
@@ -38,3 +39,6 @@ Feel free to take a glance at the following available illustrations.
 ## etc
 ### Algorithm 1 [[SRC]](submodules/alg1/alg1.tex)
 ![Algorithm 1](submodules/alg1/alg1.png)
+
+### Graph1 [[SRC]](submodules/graph1/graph1.tex)
+![figure 4](submodules/graph1/graph1.png)
